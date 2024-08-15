@@ -21,7 +21,7 @@ Para começar, siga os passos abaixo:
   ```bash
   DB_DIALECT=postgres
   DB_HOST=localhost
-  DB_PORT=5433
+  DB_PORT=5434
   DB_USERNAME=postgres
   DB_PASSWORD=postgres
   DB_DATABASE=products_db
