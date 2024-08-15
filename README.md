@@ -19,9 +19,14 @@ Para começar, siga os passos abaixo:
 - **Crie um Arquivo .env**
   Crie um arquivo .env na raiz do projeto products-backend e adicione suas variáveis de ambiente. Exemplo de conteúdo:
   ```bash
-  POSTGRES_USER=postgres
-  POSTGRES_PASSWORD=postgres
-  POSTGRES_DB=products_db
+  DB_DIALECT=postgres
+  DB_HOST=localhost
+  DB_PORT=5433
+  DB_USERNAME=postgres
+  DB_PASSWORD=postgres
+  DB_DATABASE=products_db
+  SEEDER_STORAGE=json
+  MIGRATION_STORAGE=json
 
 - **Instalação de Dependências:**
   ```bash
