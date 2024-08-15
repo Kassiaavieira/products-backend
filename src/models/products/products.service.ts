@@ -10,8 +10,19 @@ export class ProductsService {
     return this.productModel.create(createProductDto);
   }
 
-  findAll() {
-    return this.productModel.findAll();
+  async findAll(page: number = 1, limit: number = 5) {
+    const { count, rows } = await this.productModel.findAndCountAll({
+      limit,
+      offset: (page - 1) * limit,
+      order: [['createdAt', 'DESC']],
+    });
+
+    return {
+      totalItems: count,
+      items: rows,
+      totalPages: Math.ceil(count / limit),
+      currentPage: page,
+    };
   }
 
   findOne(id: number) {

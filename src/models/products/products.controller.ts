@@ -1,11 +1,12 @@
 import {
-  Body,
   Controller,
-  Delete,
   Get,
-  Param,
   Post,
-  Put,
+  Patch,
+  Delete,
+  Body,
+  Param,
+  Query,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 
@@ -19,8 +20,8 @@ export class ProductsController {
   }
 
   @Get()
-  findAll() {
-    return this.productsService.findAll();
+  findAll(@Query('page') page: number = 1, @Query('limit') limit: number = 5) {
+    return this.productsService.findAll(page, limit);
   }
 
   @Get(':id')
@@ -28,7 +29,7 @@ export class ProductsController {
     return this.productsService.findOne(id);
   }
 
-  @Put(':id')
+  @Patch(':id')
   update(@Param('id') id: number, @Body() updateProductDto: any) {
     return this.productsService.update(id, updateProductDto);
   }
